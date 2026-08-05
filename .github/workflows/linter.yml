@@ -1,0 +1,36 @@
+name: Test
+
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+  packages: read
+  statuses: write
+
+jobs:
+  lint:
+    name: Lint Codebase
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        id: checkout
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+          lfs: true
+
+      - name: TEST
+        uses: ACaiCat/huawei-appgallery-deploy@v1.0.0
+        with:
+          credentials:  ${{secrets.HUAWEI_CREDENTIALS}}
+          app-id: ${{secrets.HUAWEI_APP_ID}}
+          file-path: "app.hap"
+          file-name: "fuu.hap"
+          submit: false
