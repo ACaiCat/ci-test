@@ -27,7 +27,7 @@ jobs:
           lfs: true
 
       - name: TEST
-        uses: ACaiCat/huawei-appgallery-deploy@v1.6.0
+        uses: ACaiCat/huawei-appgallery-deploy@v1.5.0
         with:
           credentials:  ${{secrets.HUAWEI_CREDENTIALS}}
           app-id: ${{secrets.HUAWEI_APP_ID}}
@@ -37,3 +37,5 @@ jobs:
           test-submit: true
           test-group-ids: 3bd3c58f77f844a7abeb2b4deadfa94a,5750d1361e784f699b4113f72a98d3fa
           test-desc: 工作流自动发布
+          version-desc: "FzuHelper_7.2.6.726703.app"
+          
